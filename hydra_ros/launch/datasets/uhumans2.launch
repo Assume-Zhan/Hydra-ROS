@@ -14,7 +14,7 @@
          unless="$(arg use_gt_semantics)"/>
     <arg name="pointcloud_topic" value="semantic_pointcloud"/>
 
-    <arg name="use_gt_frame" default="true"/>
+    <arg name="use_gt_frame" default="false"/>
     <arg name="sensor_frame" default="base_link_kimera" unless="$(arg use_gt_frame)"/>
     <arg name="sensor_frame" default="base_link_gt" if="$(arg use_gt_frame)"/>
 
