@@ -3,8 +3,8 @@
     <param name="use_sim_time" value="$(arg sim_time_required)"/>
 
     <arg name="use_gt_semantics" default="true"/>
-    <arg name="semantic_map_dir" default="$(find kimera_semantics_ros)/cfg"/>
-    <arg name="semantic_map_file" default="tesse_multiscene_office1_segmentation_mapping.csv"/>
+    <arg name="semantic_map_dir" default="$(find hydra_ros)/cfg"/>
+    <arg name="semantic_map_file" default="gazebo_env_segmentation_mapping.csv"/>
 
     <arg name="semantic_map_path"
          default="$(arg semantic_map_dir)/$(arg semantic_map_file)"
