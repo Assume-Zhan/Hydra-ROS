@@ -1,5 +1,5 @@
 <launch>
-    <arg name="sim_time_required" default="true"/>
+    <arg name="sim_time_required" default="false"/>
     <param name="use_sim_time" value="$(arg sim_time_required)"/>
 
     <arg name="use_semantics" default="true"/>
@@ -9,12 +9,12 @@
 
     <arg name="rgb_info_topic" default="/zed/zed_node/left/camera_info" if="$(arg use_label_image)"/>
     <arg name="rgb_info_topic" default="/zed/zed_node/left/camera_info" unless="$(arg use_label_image)"/>
-    <arg name="rgb_topic" default="/zed/zed_node/left_raw/image_raw_color" if="$(arg use_label_image)"/>
-    <arg name="rgb_topic" default="/zed/zed_node/left_raw/image_raw_color" unless="$(arg use_label_image)"/>
+    <arg name="rgb_topic" default="/segmented_image" if="$(arg use_label_image)"/>
+    <arg name="rgb_topic" default="/segmented_image" unless="$(arg use_label_image)"/>
     <arg name="depth_topic" default="/zed/zed_node/depth/depth_registered"/>
 
-    <arg name="use_static_tfs" default="true"/>
-    <include file="$(find hydra_ros)/launch/utils/includes/uhumans2_static_tfs.xml" if="$(arg use_static_tfs)"/>
+    <!-- <arg name="use_static_tfs" default="true"/>
+    <include file="$(find hydra_ros)/launch/utils/includes/uhumans2_static_tfs.xml" if="$(arg use_static_tfs)"/> -->
 
     <include file="$(find hydra_ros)/launch/utils/includes/rgbd_to_pointcloud.xml" pass_all_args="true"
              if="$(eval arg('use_gt_semantics') or not arg('use_semantics'))"/>
